@@ -44,12 +44,56 @@ const GET_LANDING_PAGE = /* GraphQL */ `
     }
   }
 
+  fragment concepts on LandingPage {
+    sectionConcepts {
+      title
+      concepts {
+        title
+      }
+    }
+  }
+
+  fragment modules on LandingPage {
+    sectionModules {
+      title
+      modules {
+        title
+        subtitle
+        description
+      }
+    }
+  }
+
+  fragment agenda on LandingPage {
+    sectionAgenda {
+      title
+      description
+    }
+  }
+
+  fragment priceBox on LandingPage {
+    priceBox {
+      totalPrice
+      numberInstallments
+      priceInstallment
+      benefits
+      button {
+        label
+        url
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
       ...header
       ...aboutProject
       ...tech
+      ...concepts
+      ...modules
+      ...agenda
+      ...priceBox
     }
   }
 `
