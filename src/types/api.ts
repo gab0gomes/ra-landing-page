@@ -73,7 +73,6 @@ export type SocialLinks = {
 }
 
 export type Author = {
-  id: string
   name: string
   role: string
   photo: Image
