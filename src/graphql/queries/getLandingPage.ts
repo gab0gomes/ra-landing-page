@@ -1,4 +1,5 @@
 const GET_LANDING_PAGE = /* GraphQL */ `
+  # Write your query or mutation here
   fragment logo on LandingPage {
     logo {
       url
@@ -38,6 +39,8 @@ const GET_LANDING_PAGE = /* GraphQL */ `
       techIcons {
         icon {
           url
+          alternativeText
+          name
         }
         title
       }
@@ -84,6 +87,26 @@ const GET_LANDING_PAGE = /* GraphQL */ `
     }
   }
 
+  fragment sectionAboutUs on LandingPage {
+    sectionAboutUs {
+      title
+      authors {
+        id
+        name
+        role
+        photo {
+          url
+          alternativeText
+        }
+        socialLinks {
+          title
+          url
+        }
+        description
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
@@ -94,6 +117,7 @@ const GET_LANDING_PAGE = /* GraphQL */ `
       ...modules
       ...agenda
       ...priceBox
+      ...sectionAboutUs
     }
   }
 `
