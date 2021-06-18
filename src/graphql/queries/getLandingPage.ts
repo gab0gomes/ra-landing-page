@@ -1,5 +1,6 @@
 const GET_LANDING_PAGE = /* GraphQL */ `
   # Write your query or mutation here
+  # Write your query or mutation here
   fragment logo on LandingPage {
     logo {
       url
@@ -99,10 +100,25 @@ const GET_LANDING_PAGE = /* GraphQL */ `
           alternativeText
         }
         socialLinks {
+          id
           title
           url
         }
         description
+      }
+    }
+  }
+
+  fragment sectionReviews on LandingPage {
+    sectionReviews {
+      title
+      reviews {
+        id
+        name
+        text
+        photo {
+          url
+        }
       }
     }
   }
@@ -118,6 +134,7 @@ const GET_LANDING_PAGE = /* GraphQL */ `
       ...agenda
       ...priceBox
       ...sectionAboutUs
+      ...sectionReviews
     }
   }
 `
